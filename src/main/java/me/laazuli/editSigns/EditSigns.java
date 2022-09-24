@@ -30,8 +30,7 @@ public class EditSigns extends JavaPlugin {
         if (aufChunkGeadded) {
             BlockState probSign = block.getState();
             if (probSign instanceof Sign sign) {
-                Method method = Player.class.getMethod("openSign", Sign.class);
-                method.invoke(player, sign);
+                player.openSign(sign);
                 return true;
             }
         }
