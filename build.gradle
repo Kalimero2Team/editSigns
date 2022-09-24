@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'me.laazuli'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://papermc.io/repo/repository/maven-public/"
+    }
+}
+
+dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT")
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'me.minidigger:minimessage-ext-markdown:2.1.0'
+}
+
+test {
+    useJUnitPlatform()
+}
