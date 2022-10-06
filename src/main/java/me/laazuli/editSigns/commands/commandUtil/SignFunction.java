@@ -1,4 +1,4 @@
-package me.laazuli.editSigns.util;
+package me.laazuli.editSigns.commands.commandUtil;
 
 import org.bukkit.Location;
 

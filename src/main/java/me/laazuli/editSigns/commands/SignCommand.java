@@ -2,7 +2,7 @@ package me.laazuli.editSigns.commands;
 
 import me.laazuli.editSigns.EditSigns;
 import me.laazuli.editSigns.commands.commandUtil.PositionTabCompletion;
-import me.laazuli.editSigns.util.SignFunction;
+import me.laazuli.editSigns.commands.commandUtil.SignFunction;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.ChatColor;
