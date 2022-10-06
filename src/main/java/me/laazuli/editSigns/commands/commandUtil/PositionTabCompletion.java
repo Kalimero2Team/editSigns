@@ -8,33 +8,33 @@ import java.util.Objects;
 
 public class PositionTabCompletion {
 
-    protected void positionTabComplete(Player player, String[] args, ArrayList<String> returnList){
-        String x;
-        String y;
-        String z;
+    protected void positionTabComplete(Player player, String[] args, ArrayList<String> returnList, int subCommands){
+        int x;
+        int y;
+        int z;
         if (Objects.requireNonNull(player.getTargetBlock(4)).getState() instanceof Sign){
-            x = Integer.toString(Objects.requireNonNull(player.getTargetBlock(4)).getX());
-            y = Integer.toString(Objects.requireNonNull(player.getTargetBlock(4)).getY());
-            z = Integer.toString(Objects.requireNonNull(player.getTargetBlock(4)).getZ());
+            x = Objects.requireNonNull(player.getTargetBlock(4)).getX();
+            y = Objects.requireNonNull(player.getTargetBlock(4)).getY();
+            z = Objects.requireNonNull(player.getTargetBlock(4)).getZ();
         }
         else {
-            x = Integer.toString((int) player.getLocation().getX());
-            y = Double.toString((int) player.getLocation().getY());
-            z = Double.toString((int) player.getLocation().getZ());
+            x = (int) player.getLocation().getX();
+            y = (int) player.getLocation().getY();
+            z = (int) player.getLocation().getZ();
         }
-        positionTabComplete(x, y, z, args, returnList);
+        positionTabComplete(x, y, z, args, returnList, subCommands);
     }
 
-    protected void positionTabComplete(String x, String y, String z, String[] args, ArrayList<String> returnList) {
-        if (args.length == 1) {
-            returnList.add(x);
+    protected void positionTabComplete(int x, int y, int z, String[] args, ArrayList<String> returnList, int subCommands) {
+        if (args.length == subCommands + 1) {
+            returnList.add(Integer.toString(x));
             returnList.add(x + " " + y);
             returnList.add(x + " " + y + " " + z);
-        } else if (args.length == 2) {
-            returnList.add(y);
+        } else if (args.length == subCommands + 2) {
+            returnList.add(Integer.toString(y));
             returnList.add(y + " " + z);
-        } else if (args.length == 3) {
-            returnList.add(z);
+        } else if (args.length == subCommands + 3) {
+            returnList.add(Integer.toString(z));
         }
     }
 }

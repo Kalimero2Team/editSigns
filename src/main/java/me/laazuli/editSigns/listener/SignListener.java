@@ -38,7 +38,6 @@ public class SignListener implements Listener {
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event){
-        // event.getPlayer().sendMessage("BlockPlaceEvent");
         Block block = event.getBlock();
         if(block.getState() instanceof Sign){
             Location location = block.getLocation();
@@ -48,20 +47,16 @@ public class SignListener implements Listener {
 
     @EventHandler
     public void onSignChange(SignChangeEvent event){
-        // event.getPlayer().sendMessage("SignChangeEvent");
         Sign sign = (Sign) event.getBlock().getState();
         Location signLocation = sign.getLocation();
         if (this.signLocations.contains(signLocation)) {
             this.signLocations.remove(signLocation);
-            //event.getPlayer().sendMessage("signChange removeFromList");
         }
         else{
             List<Component> lines = sign.lines();
-            this.plugin.getLogger().log(Level.INFO, "Edited " + sign.getType().name() + " at " + signLocation + " by " + event.getPlayer().getName() + " - " +
-                    "New Text: " + "1: " + lines.get(0) + " - 2: " + lines.get(1) + " - 3: " + lines.get(2) + " - 4: " + lines.get(3));
-                    //lines);
-            //event.getPlayer().sendMessage("signChange Log");
+            this.plugin.getLogger().log(Level.INFO, "Edited " + sign.getType().name() + " at " + signLocation
+                    + " by " + event.getPlayer().getName() + " - " + "New Text: " + "1: " + lines.get(0) + " - 2: "
+                    + lines.get(1) + " - 3: " + lines.get(2) + " - 4: " + lines.get(3));
         }
     }
-
 }
