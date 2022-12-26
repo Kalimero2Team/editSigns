@@ -2,8 +2,4 @@ main: me.laazuli.editSigns.EditSigns
 name: editSigns
 version: 0.1-SNAPSHOT
 api-version: 1.19
-commands:
-  setSign:
-    description: Sets a single line of a sign by command. If player is not looking at sign, coordinates are required like when using a command block/console
-  editSign:
-    description: Opens the interface of a Sign at the given coordinates. Player-only command
+depend: ["claims-paper"]
