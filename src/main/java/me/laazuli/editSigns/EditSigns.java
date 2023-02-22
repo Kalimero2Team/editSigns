@@ -17,7 +17,7 @@ public class EditSigns extends JavaPlugin {
     public static boolean openSignInterface(Player player, Block block) {
         Chunk chunk = block.getChunk();
         ClaimsChunk claimsChunk = ClaimsApi.getApi().getChunk(chunk.getX(), chunk.getZ(), chunk.getWorld().getUID());
-        if (claimsChunk.isClaimed() && (claimsChunk.getOwner().equals(player.getUniqueId()) || claimsChunk.getTrustedList().contains(player.getUniqueId()))) {
+        if (claimsChunk.isClaimed() && (player.getUniqueId().equals(claimsChunk.getOwner()) || claimsChunk.getTrustedList().contains(player.getUniqueId()))) {
             BlockState probSign = block.getState();
             if (probSign instanceof Sign sign) {
                 player.openSign(sign);
